@@ -1,0 +1,39 @@
+.card {
+  border: 2px solid var(--white);
+  border-radius: .5rem;
+  cursor: pointer;
+
+  &__image-character {
+    display: flex;
+
+    &__info {
+      padding: 1rem 2rem;
+    }
+  }
+  &__content {
+    padding: 1rem;
+
+    &__status-type {
+      margin-top: .5rem;
+      display: flex;
+      align-items: center;
+  
+      &__circle {
+        display: inline-block;
+        height: 0.875rem;
+        width: 0.875rem;
+        border-radius: 50%;
+        background-color: var(--green);
+        margin-right: .5rem;
+      }
+    }
+  }
+  &__more-info {
+    display: flex;
+    padding: 2rem;
+
+    &__episodes {
+      margin-left: 2rem;
+    }
+  }
+}
