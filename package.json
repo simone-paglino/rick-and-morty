@@ -4,6 +4,7 @@
   "homepage": "./",
   "author": "Simone Paglino https://www.linkedin.com/in/simone-paglino/",
   "dependencies": {
+    "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
