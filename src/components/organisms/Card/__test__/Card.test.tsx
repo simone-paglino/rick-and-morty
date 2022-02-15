@@ -11,7 +11,8 @@ const mockCharacter = {
 	gender: GENDER.MALE,
 	status: STATUS_CHARACTER.ALIVE,
 	type: 'Type card',
-	image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg'
+	image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+	numEpisodes: 12
 }
 
 const mockLocation = {

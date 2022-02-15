@@ -4,6 +4,9 @@
   /* COLORS */
   --white: #fff;
   --green: #008000;
+  --yellow: #dcb000;
+  --red: #c9411f;
+  --blue: #023ee7;
 
   /* BREAKPOINTS */
   --sx: 600px;
@@ -18,7 +21,7 @@
 }
 
 h4 { font-size: 1.5rem; }
-p, h6 { font-size: 1.125rem; }
+p, h5 { font-size: 1.125rem; }
 
 @media screen and (max-width: var(--sx)) {
   h4 { font-size: 1.375rem; }
@@ -27,6 +30,8 @@ p, h6 { font-size: 1.125rem; }
 
 .mt--1 { margin-top: 1rem; }
 .mt--2 { margin-top: 2rem; }
+.ml--1 { margin-top: 2rem; }
+.ml--2 { margin-top: 2rem; }
 
 .collapse--close {
   padding-top: 0;

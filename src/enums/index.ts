@@ -10,3 +10,10 @@ export enum STATUS_CHARACTER {
   DEAD = 'Dead',
   UNKNOWN = 'unknown'
 }
+
+export enum REQUEST_STATE {
+  INIT = 'INIT',
+  LOADING = 'LOADING',
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR'
+}
