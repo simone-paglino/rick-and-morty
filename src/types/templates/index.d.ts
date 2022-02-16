@@ -14,3 +14,13 @@ export type PaginationDetailsType = {
   maxPages: number;
   currentPage: number;
 }
+
+export type getLocationsAndEpisodesForCharactersType = DictionaryByIndex<{
+  idsLocation: [number, number],
+  idsEpisodes: number[]
+}>
+
+export type AllLocationsAndEpisodesForCharacterType = {
+  idsLocation: number[],
+  idsEpisodes: number[]
+}

@@ -38,19 +38,6 @@ describe('Card component: ', () => {
 
 		expect(collapseElement).toHaveClass('collapse--close')
 	})
-	it('should render more-info section NOT collapsed after onClick event', () => {
-		render(<Card character={mockCharacter} />)
-
-		const collapseElement = document.querySelector('div.card__more-info')
-
-		act(() => {
-			if(collapseElement) {
-				userEvent.click(collapseElement)
-			}
-		})
-
-		expect(collapseElement).toHaveClass('collapse--open')
-	})
 	it('should render the location, origin and the list of episodes', () => {
 		render(
 			<Card
@@ -72,12 +59,29 @@ describe('Card component: ', () => {
 	it('should render a loading text if data is not ready yet', () => {
 		render(<Card character={mockCharacter} />)
 
-		const loadingLocation = screen.getByText(/loading location.../i)
-		const loadingOrigin = screen.getByText(/loading origin.../i)
-		const loadingEpisode = screen.getByText(/loading episodes.../i)
+		const loadingLocation = screen.getByText(/Location unknown/i)
+		const loadingOrigin = screen.getByText(/Origin unknown/i)
+		const loadingEpisode = screen.getByText(/No episodes/i)
 
 		expect(loadingLocation).toBeInTheDocument()
 		expect(loadingOrigin).toBeInTheDocument()
 		expect(loadingEpisode).toBeInTheDocument()
+	})
+	it('should toggle icon to show more content', () => {
+		render(<Card character={mockCharacter} />)
+
+		const iconShowMore = screen.getByTestId('plus-icon')
+
+		expect(iconShowMore).toBeInTheDocument()
+
+		act(() => {
+			userEvent.click(iconShowMore)
+		})
+
+		const collapseElement = document.querySelector('div.card__more-info')
+		const iconShowLess = screen.getByTestId('minus-icon')
+
+		expect(collapseElement).toHaveClass('collapse--open')
+		expect(iconShowLess).toBeInTheDocument()
 	})
 })

@@ -26,7 +26,7 @@ const Card: React.FC<Pick<CardProps, 'character'> & Partial<Omit<CardProps, 'cha
 				<img src={image} />
 				<div className='card__image-character__info'>
 					<IconMoreLess show={showMoreInfo} className='card__image-character__info__icon' onClick={handleToggleShowMoreInfo} />
-					<h4>{characterName}</h4>
+					<h4 className='card__image-character__info__name'>{characterName}</h4>
 					<p className='card__content__status-type'>
 						<span
 							className={`card__content__status-type--${status.toLocaleLowerCase()}`}
@@ -68,7 +68,7 @@ const Card: React.FC<Pick<CardProps, 'character'> & Partial<Omit<CardProps, 'cha
 									{episodes?.map((item, index) => <li key={index} role='listitem'>{item}</li>)}
 								</ul>
 							</>
-						) : <p>Loading episodes...</p>
+						) : <p>No episodes</p>
 					}
 				</div>
 			</div>
