@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 // Types
 import {CardProps} from '../../../types/organisms'
+import IconMoreLess from '../../elements/IconMoreLess'
 import TitleAndText from '../TitleAndText'
 // Styles
 import './index.scss'
@@ -20,14 +21,17 @@ const Card: React.FC<Pick<CardProps, 'character'> & Partial<Omit<CardProps, 'cha
 	const handleToggleShowMoreInfo = (): void => setShowMoreInfo(previousState => !previousState)
 
 	return (
-		<div className='card' onClick={handleToggleShowMoreInfo}>
+		<div className='card'>
 			<div className='card__image-character'>
 				<img src={image} />
 				<div className='card__image-character__info'>
-					<h4>{characterName}</h4>
+					<IconMoreLess show={showMoreInfo} className='card__image-character__info__icon' onClick={handleToggleShowMoreInfo} />
+					<h4 className='card__image-character__info__name'>{characterName}</h4>
 					<p className='card__content__status-type'>
-						<span className='card__content__status-type__circle'></span>
-						<span className='card__content__status-type__text'>{status} - {characterType}</span>
+						<span
+							className={`card__content__status-type--${status.toLocaleLowerCase()}`}
+						></span>
+						<span className='card__content__status-type__text'>{status}{characterType && ` - ${characterType}`}</span>
 					</p>
 					<TitleAndText boldText='Gender:' standardText={gender} className='mt--1' />
 					{
@@ -38,7 +42,7 @@ const Card: React.FC<Pick<CardProps, 'character'> & Partial<Omit<CardProps, 'cha
 								<TitleAndText boldText='Dimension:' standardText={dimension} className='mt--1' />
 								<TitleAndText boldText='N° of residents:' standardText={residents} className='mt--1' />
 							</>
-						) : <p className='mt--2'>Loading location...</p>
+						) : <b className='mt--2'>Location unknown</b>
 					}
 				</div>
 			</div>
@@ -52,19 +56,19 @@ const Card: React.FC<Pick<CardProps, 'character'> & Partial<Omit<CardProps, 'cha
 								<TitleAndText boldText='Origin dimension:' standardText={originDimension} className='mt--1' />
 								<TitleAndText boldText='Origin n° of residents:' standardText={originResidents} className='mt--1' />
 							</>
-						) : <p>Loading origin...</p>
+						) : <b>Origin unknown</b>
 					}
 				</div>
 				<div className='card__more-info__episodes'>	
 					{
 						episodes ? (
 							<>
-								<h6>Episodes appearances:</h6>
-								<ul role='list'>
+								<h5>Episodes appearances:</h5>
+								<ul className='card__more-info__episodes__list' role='list'>
 									{episodes?.map((item, index) => <li key={index} role='listitem'>{item}</li>)}
 								</ul>
 							</>
-						) : <p>Loading episodes...</p>
+						) : <p>No episodes</p>
 					}
 				</div>
 			</div>

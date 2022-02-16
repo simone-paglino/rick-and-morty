@@ -1,28 +1,20 @@
-export type CharacterDetails = {
-  id: number;
-  name: string;
-  type: string;
-  status: STATUS_CHARACTER;
-  gender: GENDER;
-  image: string;
-}
+// Types
+import { LocationAPIResponse, EpisodeAPIResponse, SingleCharacterDetailsAPIResponse } from '../hooks'
 
-export type LocationDetails = {
-  id: number;
-  name: string;
-  type: string;
-  dimension: string;
+export type CharacterDetails = Pick<
+  SingleCharacterDetailsAPIResponse,
+  'id' | 'name' | 'type' | 'status' | 'gender' | 'image'
+>
+
+export type LocationDetails = Pick<LocationAPIResponse, 'id' | 'name' | 'type' | 'dimension'> & {
   residents: number;
 }
 
-export type EpisodeDetails = {
-  id: number;
-  name: string;
-}
+export type EpisodeDetails = Pick<EpisodeAPIResponse, 'id' | 'name'>
 
 export type CardProps = {
   character: CharacterDetails;
-  location: LocationDetails;
+  location?: LocationDetails;
   origin: LocationDetails;
   episodes: string[];
 }
