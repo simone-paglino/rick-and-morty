@@ -1,0 +1,12 @@
+.list-cards {
+  padding-bottom: 300px;
+  display: grid;
+  row-gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+
+  @media screen and (max-width: 1440px) {
+    grid-template-columns: 1fr;
+    justify-items: flex-start;
+  }
+}
