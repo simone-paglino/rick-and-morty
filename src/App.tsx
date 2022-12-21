@@ -4,7 +4,7 @@ import ListCards from './components/templates/ListCards'
 import { GENDER, STATUS_CHARACTER } from './enums' */
 
 const App: React.FC = () => {
-	/* const character = {
+  /* const character = {
 		id: 1,
 		name: 'Name of card',
 		gender: GENDER.MALE,
@@ -14,14 +14,14 @@ const App: React.FC = () => {
 		numEpisodes: 12
 	} */
 
-	return (
-		<div>
-			{/* <Card
+  return (
+    <div>
+      {/* <Card
 				character={character}
 			/> */}
-			<ListCards />
-		</div>
-	)
+      <ListCards />
+    </div>
+  )
 }
 
 export default App

@@ -5,47 +5,47 @@ import userEvent from '@testing-library/user-event'
 import IconMoreLess from '..'
 
 describe('IconMoreLess component: ', () => {
-	let mockOnClick: typeof jest.fn
+  let mockOnClick: typeof jest.fn
 
-	beforeEach(() => {
-		mockOnClick = jest.fn()
-	})
+  beforeEach(() => {
+    mockOnClick = jest.fn()
+  })
 
-	afterEach(() => {
-		cleanup()
-		jest.clearAllMocks()
-	})
+  afterEach(() => {
+    cleanup()
+    jest.clearAllMocks()
+  })
 
-	it('should render plus icon if show is false', () => {
-		render(<IconMoreLess onClick={mockOnClick} />)
+  it('should render plus icon if show is false', () => {
+    render(<IconMoreLess onClick={mockOnClick} />)
     
-		const plusIcon = screen.getByTestId('plus-icon')
+    const plusIcon = screen.getByTestId('plus-icon')
 
-		expect(plusIcon).toBeInTheDocument()
-	})
-	it('should render minus icon if show is true', () => {
-		render(<IconMoreLess onClick={mockOnClick} show />)
+    expect(plusIcon).toBeInTheDocument()
+  })
+  it('should render minus icon if show is true', () => {
+    render(<IconMoreLess onClick={mockOnClick} show />)
     
-		const plusIcon = screen.getByTestId('minus-icon')
+    const plusIcon = screen.getByTestId('minus-icon')
 
-		expect(plusIcon).toBeInTheDocument()
-	})
-	it('should call onClick function after click', () => {
-		render(<IconMoreLess onClick={mockOnClick} />)
+    expect(plusIcon).toBeInTheDocument()
+  })
+  it('should call onClick function after click', () => {
+    render(<IconMoreLess onClick={mockOnClick} />)
     
-		const plusIcon = screen.getByTestId('plus-icon')
+    const plusIcon = screen.getByTestId('plus-icon')
 
-		act(() => {
-			userEvent.click(plusIcon)
-		})
+    act(() => {
+      userEvent.click(plusIcon)
+    })
 
-		expect(mockOnClick).toHaveBeenCalledTimes(1)
-	})
-	it('should have className if passed as prop', () => {
-		render(<IconMoreLess onClick={mockOnClick} className='custom-css-class' />)
+    expect(mockOnClick).toHaveBeenCalledTimes(1)
+  })
+  it('should have className if passed as prop', () => {
+    render(<IconMoreLess onClick={mockOnClick} className='custom-css-class' />)
     
-		const plusIcon = screen.getByTestId('plus-icon')
+    const plusIcon = screen.getByTestId('plus-icon')
 
-		expect(plusIcon).toHaveClass('custom-css-class')
-	})
+    expect(plusIcon).toHaveClass('custom-css-class')
+  })
 })

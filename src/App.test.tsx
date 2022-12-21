@@ -4,11 +4,11 @@ import { render } from '@testing-library/react'
 import App from './App'
 
 describe('App component', () => {
-	it('should render', () => {
-		render(<App />)
+  it('should render', () => {
+    render(<App />)
 
-		const div = document.querySelector('div')
+    const div = document.querySelector('div')
 
-		expect(div).toBeInTheDocument()
-	})
+    expect(div).toBeInTheDocument()
+  })
 })

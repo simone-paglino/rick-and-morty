@@ -5,17 +5,17 @@ import userEvent from '@testing-library/user-event'
 import ListCards from '..'
 
 describe('ListCards component: ', () => {
-	it('should call handleGoToPreviousPage but with disabled button', () => {
-		render(<ListCards />)
+  it('should call handleGoToPreviousPage but with disabled button', () => {
+    render(<ListCards />)
 
-		const previousButton = screen.getAllByRole('button')[0]
-		const getTextCurrentPage = screen.getByText(/^1$/i)
+    const previousButton = screen.getAllByRole('button')[0]
+    const getTextCurrentPage = screen.getByText(/^1$/i)
 
-		act(() => {
-			userEvent.click(previousButton)
-		})
+    act(() => {
+      userEvent.click(previousButton)
+    })
 
-		expect(previousButton).toBeDisabled()
-		expect(getNodeText(getTextCurrentPage)).toBe('1')
-	})
+    expect(previousButton).toBeDisabled()
+    expect(getNodeText(getTextCurrentPage)).toBe('1')
+  })
 })

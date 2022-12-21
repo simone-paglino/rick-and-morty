@@ -7,16 +7,16 @@ export interface TitleAndTextProps {
 }
 
 const TitleAndText: React.FC<TitleAndTextProps> = ({
-	boldText,
-	standardText = '',
-	className = ''
+  boldText,
+  standardText = '',
+  className = ''
 }) => {
-	return (
-		<p className={className}>
-			<b>{boldText}</b>
-			{standardText && <span>{` ${standardText}`}</span>}
-		</p>
-	)
+  return (
+    <p className={className}>
+      <b>{boldText}</b>
+      {standardText && <span>{` ${standardText}`}</span>}
+    </p>
+  )
 }
 
 export default TitleAndText
