@@ -3,14 +3,6 @@
   "version": "0.1.0",
   "homepage": "./",
   "author": "Simone Paglino https://www.linkedin.com/in/simone-paglino/",
-  "dependencies": {
-    "axios": "^0.26.0",
-    "node-sass": "^7.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
-  },
   "scripts": {
     "start": "yarn lint && react-scripts start",
     "build": "NODE_ENV=production INLINE_RUNTIME_CHUNK=false react-scripts build",
@@ -18,6 +10,14 @@
     "lint": "eslint . --ext .ts,tsx --fix --resolve-plugins-relative-to .",
     "coverage": "yarn test --coverage",
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "node-sass": "^7.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "^2.1.4"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",
