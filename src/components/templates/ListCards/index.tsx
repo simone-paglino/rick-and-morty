@@ -8,123 +8,56 @@ import useAPI from '../../../hooks/useAPI'
 import {
   CardsState,
   DataFetchedCardsAPI,
-  PaginationDetailsType
+  PaginationDetailsType,
 } from '../../../types/templates'
 // Styles
 import './index.scss'
-import useCharactersPagination from '../../../hooks/useCharactersPagination'
+import { useCharacters } from '../../../hooks/useCharacters'
 
 const ListCards: React.FC = () => {
-  const {
-    getLocationsAndEpisodesForCharacters,
-    getAllLocationsAndEpisodesForCharacter,
-    getIdsLocationOrEpisodeNotFetchedYet,
-    getLocationsFetched,
-    getEpisodesFetched,
-    getArrayCardsProps
-  } = useCharactersPagination()
-  const { fetchPageCharacters} = useAPI()
+  const [currentPage, setCurrentPage] = useState(1)
 
-  const [paginationDetails, setPaginationDetails] = useState<PaginationDetailsType>({
-    maxPages: 1,
-    currentPage: 1
-  })
-  const [charactersPages, setCharactersPages] = useState<CardsState>({})
-  const [dictionaryDataFetched, setDictionaryDataFetched] = useState<DataFetchedCardsAPI>({
-    locations: {},
-    episodes: {}
+  const { data, status: apiStatus } = useCharacters({
+    pagination: {
+      paginationNumber: currentPage,
+    },
   })
 
-  const isPreviousDisabled = (currentPage: number): boolean => currentPage < 2
-  const isNextDisabled = (currentPage: number, maxPages: number): boolean => currentPage === maxPages
-
-  const handleGoToPreviousPage = (): void => {
-    setPaginationDetails(({ currentPage, maxPages }) => ({
-      maxPages,
-      currentPage: isPreviousDisabled(currentPage) ? currentPage : currentPage - 1
-    }))
+  if (['IDLE', 'LOADING'].includes(apiStatus)) {
+    return <h1>Loading...</h1>
   }
-
-  const handleGoToNextPage = (): void => {
-    setPaginationDetails(({currentPage, maxPages}) => ({
-      maxPages,
-      currentPage: isNextDisabled(currentPage, maxPages) ? currentPage : currentPage + 1
-    }))
-  }
-  
-	
-
-  const updatePage = async (): Promise<void> => {
-    if (!charactersPages[paginationDetails.currentPage]) {
-      const { data } = await fetchPageCharacters(paginationDetails.currentPage)
-
-      if (data) {
-        const { info, results: charactersFromAPI } = data
-
-        setPaginationDetails(previousState => ({
-          ...previousState,
-          maxPages: info.pages
-        }))
-
-        const locationsIdsAndEpisodesIds = getLocationsAndEpisodesForCharacters(charactersFromAPI)
-
-        const allLocationsAndEpisodes = getAllLocationsAndEpisodesForCharacter(locationsIdsAndEpisodesIds)
-
-        const locationIdsToFetch = getIdsLocationOrEpisodeNotFetchedYet(
-          allLocationsAndEpisodes.idsLocation,
-          dictionaryDataFetched.locations
-        )
-        
-        const episodeIdsToFetch = getIdsLocationOrEpisodeNotFetchedYet(
-          allLocationsAndEpisodes.idsEpisodes,
-          dictionaryDataFetched.episodes
-        )
-
-        const locationsFetchedForCurrentPage = await getLocationsFetched(locationIdsToFetch)
-        const episodesFetchedForCurrentPage = await getEpisodesFetched(episodeIdsToFetch)
-
-        const allLocationsFetched = { ...dictionaryDataFetched.locations, ...locationsFetchedForCurrentPage }
-        const allEpisodesFetched = { ...dictionaryDataFetched.episodes, ...episodesFetchedForCurrentPage }
-
-        setDictionaryDataFetched({
-          locations: allLocationsFetched,
-          episodes: allEpisodesFetched
-        })
-
-        const charactersCurrentPage = getArrayCardsProps(
-          charactersFromAPI,
-          locationsIdsAndEpisodesIds,
-          allLocationsFetched,
-          allEpisodesFetched,
-          paginationDetails.currentPage
-        )
-
-        setCharactersPages(previousState => ({
-          ...previousState,
-          ...charactersCurrentPage
-        }))
-      }
-    }
-  }
-
-  useEffect(() => {
-    updatePage()
-  }, [paginationDetails.currentPage])
 
   return (
     <div>
-      <div className='list-cards'>
-        {
-          charactersPages[paginationDetails.currentPage]
-				&& charactersPages[paginationDetails.currentPage].map((cardProps, index) => <Card key={index} {...cardProps} />)
-        }
+      <div className="list-cards">
+        {data &&
+          data.charactersPageList.map(
+            (
+              { id, image, gender, name, species, status, origin, location },
+              index
+            ) => (
+              <Card
+                key={index}
+                characterName={name}
+                imageUrl={image}
+                id={id}
+                gender={gender}
+                status={status}
+                originName={origin.name}
+                locationName={location.name}
+                species={species}
+              />
+            )
+          )}
       </div>
       <PaginationBar
-        disableNext={isNextDisabled(paginationDetails.currentPage, paginationDetails.maxPages) || !charactersPages[paginationDetails.currentPage]}
-        disablePrevious={isPreviousDisabled(paginationDetails.currentPage)}
-        onClickPrevious={handleGoToPreviousPage}
-        onClickNext={handleGoToNextPage}
-        pageNumber={paginationDetails.currentPage}
+        disableNext={!data?.isNext}
+        disablePrevious={!data?.isPrevious}
+        onClickPrevious={() =>
+          setCurrentPage((previousState) => previousState - 1)
+        }
+        onClickNext={() => setCurrentPage((previousState) => previousState + 1)}
+        pageNumber={currentPage}
       />
     </div>
   )
