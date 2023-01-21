@@ -30,6 +30,17 @@
             "error",
             "never"
         ],
+        "max-len": [
+            "error",
+            {
+                "code": 80,
+                "tabWidth": 2,
+                "ignoreComments": true,
+                "ignoreUrls": true,
+                "ignoreStrings": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
         "no-console": ["error", { "allow": ["error"] }],
         "no-await-in-loop": "error",
         "no-use-before-define": "off",
