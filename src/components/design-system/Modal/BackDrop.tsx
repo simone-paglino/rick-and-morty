@@ -7,7 +7,7 @@ const BackDropStyled = styled.div<BackDropStyledProps>`
   position: absolute;
   inset: 0;
   background: ${({ useBackground }) =>
-    useBackground ? 'hsla(0, 100%, 0%, 0.5)' : 'transparent'};
+    useBackground ? 'hsla(0, 100%, 0%, 0.8)' : 'transparent'};
   overflow: hidden;
   z-index: 98;
   display: flex;

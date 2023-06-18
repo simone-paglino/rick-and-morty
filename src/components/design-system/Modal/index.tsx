@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { createPortal } from 'react-dom'
 // Components
-import { FlexBox } from '../FlexBox'
+import FlexBox from '../FlexBox'
+import Spacer from '../Spacer'
 import BackDrop from './BackDrop'
 import { BlockOverflow, ModalStyled } from './styled'
 // Types
@@ -14,16 +15,18 @@ import {
 
 const ModalHeader: FC<ModalHeaderProps> = ({ header, closeModal }) => {
   return (
-    <header>
-      <FlexBox>
-        {header}
-        <button onClick={closeModal}>&#10005;</button>
-      </FlexBox>
-    </header>
+    <FlexBox justifyContent={header ? 'space-between' : 'flex-end'}>
+      {header ?? null}
+      <button onClick={closeModal}>&#10005;</button>
+    </FlexBox>
   )
 }
 
 const ModalFooter: FC<ModalFooterProps> = ({ footer }) => {
+  if (!footer) {
+    return null
+  }
+
   return <footer>{footer}</footer>
 }
 
@@ -36,9 +39,11 @@ const Modal: FC<ModalProps> = ({ body, closeModal, footer, header }) => {
     <BackDrop onClick={closeModal}>
       <BlockOverflow />
       <ModalStyled onClick={leaveModalOpened}>
-        {header && <ModalHeader header={header} closeModal={closeModal} />}
+        <ModalHeader header={header} closeModal={closeModal} />
+        <Spacer level={header ? 4 : 2} />
         <main>{body}</main>
-        {footer && <ModalFooter footer={footer} />}
+        {footer && <Spacer level={4} />}
+        <ModalFooter footer={footer} />
       </ModalStyled>
     </BackDrop>
   )
