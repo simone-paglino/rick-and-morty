@@ -39,10 +39,10 @@ const MAP_TYPOGRAPHIES_PROPS = {
     usages: ['extra-bold', 'bold'],
   },
   'subtitle-xl': {
-    usages: ['bold'],
+    usages: ['extra-bold', 'bold'],
   },
   subtitle: {
-    usages: ['bold'],
+    usages: ['extra-bold', 'bold'],
   },
   'subtitle-small': {
     usages: ['bold'],
@@ -68,7 +68,7 @@ export const TYPOGRAPHIES: TypographiesType = {
       mobile: '2.67rem',
     },
     htmlElement: 'h1',
-    lineHeight: 1.75,
+    lineHeight: 1.2,
   },
   title: {
     defaultUsage: 'extra-bold',
@@ -77,7 +77,7 @@ export const TYPOGRAPHIES: TypographiesType = {
       mobile: '2.13625rem',
     },
     htmlElement: 'h2',
-    lineHeight: 1.75,
+    lineHeight: 1.2,
   },
   'subtitle-xl': {
     defaultUsage: 'bold',
@@ -86,7 +86,7 @@ export const TYPOGRAPHIES: TypographiesType = {
       mobile: '1.70875',
     },
     htmlElement: 'h3',
-    lineHeight: 1.75,
+    lineHeight: 1.2,
   },
   subtitle: {
     defaultUsage: 'bold',
@@ -95,7 +95,7 @@ export const TYPOGRAPHIES: TypographiesType = {
       mobile: '1.3675rem',
     },
     htmlElement: 'h4',
-    lineHeight: 1.75,
+    lineHeight: 1.2,
   },
   'subtitle-small': {
     defaultUsage: 'bold',
@@ -104,7 +104,7 @@ export const TYPOGRAPHIES: TypographiesType = {
       mobile: '1.09375rem',
     },
     htmlElement: 'h5',
-    lineHeight: 1.75,
+    lineHeight: 1.2,
   },
   normal: {
     defaultUsage: 'regular',
@@ -113,7 +113,7 @@ export const TYPOGRAPHIES: TypographiesType = {
       mobile: '.875rem',
     },
     htmlElement: 'p',
-    lineHeight: 1.75,
+    lineHeight: 1.2,
   },
   small: {
     defaultUsage: 'light',
@@ -122,7 +122,7 @@ export const TYPOGRAPHIES: TypographiesType = {
       mobile: '0.7rem',
     },
     htmlElement: 'span',
-    lineHeight: 1.75,
+    lineHeight: 1.2,
   },
 }
 
