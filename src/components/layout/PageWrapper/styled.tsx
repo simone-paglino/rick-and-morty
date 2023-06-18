@@ -12,9 +12,10 @@ export const PageWrapperStyled = styled.div<PageWrapperStyledProps>`
       max-width: ${maxWidth}px;
       margin-inline: auto;
     `}
-  padding-top: ${SIZES[48]};
 
-  @media screen and(max-width: 1339px) {
-    padding: ${SIZES[48]};
+  padding: ${SIZES[32]};
+
+  @media screen and (max-width: 600px) {
+    padding: ${SIZES[16]};
   }
 `
