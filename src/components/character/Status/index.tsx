@@ -1,21 +1,23 @@
 import React, { FC } from 'react'
 import { CharacterStatusType } from '../../../types'
-import Spacer from '../../design-system/Spacer'
-import FlexBox from '../../design-system/FlexBox'
 import Text from '../../design-system/Text'
-import { CircleStyled } from './styled'
+import { StatusWrapper } from './styled'
+import { getStatusColorKey } from './utils'
+import { COLORS } from '../../theme/colors'
 
 type CharacterStatusProps = {
   status: CharacterStatusType
 }
 
 const CharacterStatus: FC<CharacterStatusProps> = ({ status }) => {
+  const colorKey = getStatusColorKey(status)
+
   return (
-    <FlexBox alignItems="center">
-      <CircleStyled characterStatus={status} />
-      <Spacer level={1} isHorizontal />
-      <Text typography="normal">{status}</Text>
-    </FlexBox>
+    <StatusWrapper borderColor={COLORS[colorKey]}>
+      <Text colorKey={colorKey} typography="normal">
+        {status}
+      </Text>
+    </StatusWrapper>
   )
 }
 
