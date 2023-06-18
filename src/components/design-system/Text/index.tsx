@@ -7,9 +7,11 @@ import {
 } from '../../theme/fonts'
 import { getTextStyled } from './styled'
 import { getTextHtmlElement } from './utils'
+import { COLORS } from '../../theme/colors'
 
 type TextProps<Typography extends TypographiesKeys> = {
   children?: ReactNode
+  colorKey?: keyof typeof COLORS
   isInline?: boolean
   typography: Typography
   usage?: MapTypographiesProps<Typography>
@@ -17,6 +19,7 @@ type TextProps<Typography extends TypographiesKeys> = {
 
 const Text = <Typography extends TypographiesKeys>({
   children,
+  colorKey,
   isInline = false,
   typography,
   usage,
@@ -40,6 +43,7 @@ const Text = <Typography extends TypographiesKeys>({
 
   return (
     <TextStyledMemoized
+      color={colorKey ? COLORS[colorKey] : undefined}
       fontSize={fontSize.desktop}
       fontWeight={TYPOGRAPHY_USAGES[usage ?? defaultUsage]}
       lineHeight={lineHeight}
