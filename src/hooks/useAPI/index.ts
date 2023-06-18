@@ -28,6 +28,7 @@ type SUPPORTED_API_STATUS_CODES = 'not_found' | 'generic_error'
 type Get = (params: {
   url: string
   errorMessages?: Record<SUPPORTED_API_STATUS_CODES, string>
+  skip?: boolean
 }) => void
 
 type ApiError = {
@@ -139,7 +140,15 @@ function useAPI<ResultDataType>(): UseAPIReturnType<ResultDataType> {
     })
   }
 
-  const get: Get = ({ url, errorMessages }) => {
+  const get: Get = ({ errorMessages, skip = false, url }) => {
+    if (skip) {
+      return {
+        data: undefined,
+        status: 'IDLE',
+        errors: undefined,
+      }
+    }
+
     updateApiStatus('LOADING')
 
     return handleApiRequest({
