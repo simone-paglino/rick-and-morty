@@ -25,11 +25,7 @@ const Pagination: React.FC<PaginationBarProps> = ({
   return (
     <PaginationStyled>
       <FlexBox alignItems="center" justifyContent="center" fullWidth>
-        <Button
-          onClick={onClickPrevious}
-          disabled={isPreviousDisable}
-          size="small"
-        >
+        <Button onClick={onClickPrevious} disabled={isPreviousDisable}>
           <Text typography="normal">Previous</Text>
         </Button>
         <Spacer level={3} isHorizontal />
@@ -42,7 +38,7 @@ const Pagination: React.FC<PaginationBarProps> = ({
           </Text>
         )}
         <Spacer level={3} isHorizontal />
-        <Button onClick={onClickNext} disabled={isNextDisabled} size="small">
+        <Button onClick={onClickNext} disabled={isNextDisabled}>
           <Text typography="normal">Next</Text>
         </Button>
       </FlexBox>
