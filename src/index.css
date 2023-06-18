@@ -1,48 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  /* COLORS */
-  --white: #fff;
-  --green: #008000;
-  --yellow: #dcb000;
-  --red: #c9411f;
-  --blue: #023ee7;
+    /* COLORS */
+    --white: #fff;
+    --green: #008000;
+    --yellow: #dcb000;
+    --red: #c9411f;
+    --blue: #023ee7;
 
-  /* BREAKPOINTS */
-  --sx: 600px;
-  --md: 900px;
-  --lg: 1200px;
+    /* BREAKPOINTS */
+    --sx: 600px;
+    --md: 900px;
+    --lg: 1200px;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
-h4 { font-size: 1.5rem; }
-p, h5 { font-size: 1.125rem; }
-
-@media screen and (max-width: var(--sx)) {
-  h4 { font-size: 1.375rem; }
-  p, h6 { font-size: 1rem; }
+.mt--1 {
+    margin-top: 1rem;
 }
 
-.mt--1 { margin-top: 1rem; }
-.mt--2 { margin-top: 2rem; }
-.ml--1 { margin-top: 2rem; }
-.ml--2 { margin-top: 2rem; }
+.mt--2 {
+    margin-top: 2rem;
+}
+
+.ml--1 {
+    margin-top: 2rem;
+}
+
+.ml--2 {
+    margin-top: 2rem;
+}
 
 .collapse--close {
-  padding-top: 0;
-  padding-bottom: 0;
-  height: 0;
-  opacity: 0;
-  transition: .15s linear;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+    opacity: 0;
+    transition: .15s linear;
 }
 
 .collapse--open {
-  height: auto;
-  opacity: 1;
-  transition: .15s linear;
+    height: auto;
+    opacity: 1;
+    transition: .15s linear;
 }
