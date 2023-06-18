@@ -1,8 +1,5 @@
 import React, { FC } from 'react'
-// Types
 import { ButtonProps } from '../../../types/elements'
-// Styles
-import './index.scss'
 import { ButtonStyled } from './styled'
 import { ButtonSize } from './types'
 
