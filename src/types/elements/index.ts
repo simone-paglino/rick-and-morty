@@ -1,3 +1,6 @@
+import { ReactNode } from 'react'
+import { ButtonSize } from '../../components/elements/Button/types'
+
 export type IconMoreLessProps = {
   onClick: () => void
   show?: boolean
@@ -5,7 +8,8 @@ export type IconMoreLessProps = {
 }
 
 export type ButtonProps = {
-  onClick: () => void
-  className?: string
+  children: ReactNode
   disabled?: boolean
+  onClick: () => void
+  size?: ButtonSize
 }
