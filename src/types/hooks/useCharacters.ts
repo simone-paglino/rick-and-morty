@@ -21,7 +21,6 @@ export type APICharacter = {
   url: string
 }
 
-// TODO: Return also these fields for the navigation
 export type ApiResultDataType = {
   info: {
     count: number

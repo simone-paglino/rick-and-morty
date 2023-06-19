@@ -15,10 +15,8 @@ export type APIResponse<T> = {
 export type SingleCharacterDetailsAPIResponse = {
   id: number
   name: string
-  // status: STATUS_CHARACTER
   species: string
   type: string
-  // gender: GENDER
   origin: {
     name: string
     url: string
