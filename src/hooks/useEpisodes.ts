@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { APIS } from '../constants'
+import { APIS } from '../helpers/constants'
 import useAPI, { ApiState } from './useAPI'
 
 type UseEpisodes = (params: {

@@ -1,17 +1,6 @@
 import { useState } from 'react'
 import axios, { AxiosError, AxiosResponse } from 'axios'
-// Constants
-import { APIS } from '../../constants'
-// Enums
-import { REQUEST_STATE } from '../../enums'
-// Types
-import {
-  APIResponse,
-  CharacterAPIResponse,
-  EpisodeAPIResponse,
-  LocationAPIResponse,
-  useAPIType,
-} from '../../types/hooks'
+import { APIS } from '../../helpers/constants'
 import { useCache } from '../useCache'
 
 export const axiosInstance = axios.create({

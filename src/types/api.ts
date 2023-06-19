@@ -1,0 +1,1 @@
+export type REQUEST_STATE = 'INIT' | 'LOADING' | 'SUCCESS' | 'ERROR'

@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { CharacterStatusType } from '../../../types'
+import { CharacterStatusType } from '../../../types/characters'
 import Text from '../../design-system/Text'
 import { StatusWrapper } from './styled'
 import { getStatusColorKey } from './utils'

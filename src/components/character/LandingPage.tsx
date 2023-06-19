@@ -2,8 +2,8 @@ import React, { FC, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useCharacters } from '../../hooks/useCharacters'
 import PageWrapper from '../layout/PageWrapper'
-import Pagination from '../organisms/Pagination'
-import Card from '../organisms/Card'
+import Pagination from '../design-system/Pagination'
+import CharacterCard from './CharacterCard'
 import Text from '../design-system/Text'
 import { ListCardsStyled } from './styled'
 import Spacer from '../design-system/Spacer'
@@ -57,7 +57,7 @@ const LandingPage: FC = () => {
             },
             index
           ) => (
-            <Card
+            <CharacterCard
               key={index}
               characterName={name}
               episodeIndexes={episode}

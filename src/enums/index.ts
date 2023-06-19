@@ -1,6 +1,0 @@
-export enum REQUEST_STATE {
-  INIT = 'INIT',
-  LOADING = 'LOADING',
-  SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR',
-}

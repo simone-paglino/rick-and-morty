@@ -1,4 +1,4 @@
-import { CharacterGender, CharacterStatusType } from '../index'
+import { CharacterGender, CharacterStatusType } from '../characters'
 import { ApiState } from '../../hooks/useAPI'
 
 export type APICharacter = {

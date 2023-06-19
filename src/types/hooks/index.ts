@@ -1,12 +1,4 @@
-// Enums
-import { REQUEST_STATE } from '../../enums'
-// Types
-import { CardProps, EpisodeDetails, LocationDetails } from '../organisms'
-import {
-  AllLocationsAndEpisodesForCharacterType,
-  DictionaryByIndex,
-  getLocationsAndEpisodesForCharactersType,
-} from '../templates'
+import { REQUEST_STATE } from '../api'
 
 export type APIResponsePaginationInfo = {
   count: number

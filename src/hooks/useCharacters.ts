@@ -1,5 +1,5 @@
-import { useEffect } from 'react'
-import { APIS } from '../constants'
+import {useEffect} from 'react'
+import {APIS} from '../helpers/constants'
 import useAPI from './useAPI'
 import {
   AllCharacters,
@@ -7,8 +7,8 @@ import {
   UseCharacters,
 } from '../types/hooks/useCharacters'
 
-export const useCharacters: UseCharacters = ({ pagination }) => {
-  const [get, { data, errors, status }] = useAPI<ApiResultDataType>()
+export const useCharacters: UseCharacters = ({pagination}) => {
+  const [get, {data, errors, status}] = useAPI<ApiResultDataType>()
 
   useEffect(() => {
     get({
@@ -17,10 +17,10 @@ export const useCharacters: UseCharacters = ({ pagination }) => {
     })
   }, [pagination])
 
-  const { results, info } = data ?? {}
+  const {results, info} = data ?? {}
 
   const charactersPageList: AllCharacters = (results ?? []).map(
-    ({ episode, ...rest }) => {
+    ({episode, ...rest}) => {
       const episodesIds = episode
         ?.map((episodeUrl) => {
           const extractEpisodeId = /episode\/([\d]+$)/

@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
-import { ButtonProps } from '../../../types/elements'
 import { ButtonStyled } from './styled'
-import { ButtonSize } from './types'
+import { ButtonProps, ButtonSize } from './types'
 
 const buttonSize: Record<ButtonSize, string> = {
   small: '4px 8px',
