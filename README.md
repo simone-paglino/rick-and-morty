@@ -1,13 +1,15 @@
+<h3 align="center">:warning: At the moment this project is being updated
+improving project
+structure, code quality, removing old files and more. What you see may not
+represent the final
+result. :warning:</h3>
+
 <h1 align="center">:sparkles: rick-and-morty exercise :sparkles:</h1>
 
-#### Some notes to read before viewing the exercise:
-- Usually the standards I work with have a goal of 100% coverage with testing, but this time, due to some lack of time, only the 80% was met.
-- Redux hasn't been used because usually big apps with a complex structure and operational flows require it.<br />
-For similar reasons, other libraries for styling haven't been used (Tailwind, MUI, Bootstrap ecc.)
-- The project structure was based following the principles of Atomic Design (elements, organisms, templates, layouts, pages).<br /> 
-If you want to talk more about this, feel free to contact me on LinkedIn 😁.
+## What is this project
 
-<br />
+This is a React project (CSR), to train myself by improving code quality,
+project structure quality, UI, best practises ecc.
 
 ## Steps to follow to start the app
 
@@ -18,3 +20,8 @@ Launch this command to install the dependencies to run the project.
 > yarn start
 
 Launch this command to start the application on localhost
+
+## Contacts
+
+If you want to reach out to me, this is my LinkedIn
+profile: https://www.linkedin.com/in/simone-paglino/
