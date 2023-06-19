@@ -1,4 +1,4 @@
-import { CharacterStatusType } from '../../../types'
+import { CharacterStatusType } from '../../../types/characters'
 
 export const getStatusColorKey = (status: CharacterStatusType) => {
   switch (status) {

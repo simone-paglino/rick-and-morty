@@ -1,4 +1,4 @@
-import { CharacterGender, CharacterStatusType } from '../index'
+import { CharacterGender, CharacterStatusType } from '../characters'
 import { ApiState } from '../../hooks/useAPI'
 
 export type APICharacter = {
@@ -21,7 +21,6 @@ export type APICharacter = {
   url: string
 }
 
-// TODO: Return also these fields for the navigation
 export type ApiResultDataType = {
   info: {
     count: number

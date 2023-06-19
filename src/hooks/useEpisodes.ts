@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { APIS } from '../constants'
+import { APIS } from '../helpers/constants'
 import useAPI, { ApiState } from './useAPI'
 
 type UseEpisodes = (params: {
@@ -22,7 +22,6 @@ export const useEpisodes: UseEpisodes = ({
 }) => {
   const [get, { data, errors, status }] = useAPI<EpisodesApiResultDataType>()
 
-  // TODO: Try to implement a 'skip' field inside the useApi hook somewhere to avoid always calling the hook
   useEffect(() => {
     if (!lazyFetch) {
       get({

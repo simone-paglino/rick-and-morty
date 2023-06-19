@@ -1,12 +1,4 @@
-// Enums
-import { REQUEST_STATE } from '../../enums'
-// Types
-import { CardProps, EpisodeDetails, LocationDetails } from '../organisms'
-import {
-  AllLocationsAndEpisodesForCharacterType,
-  DictionaryByIndex,
-  getLocationsAndEpisodesForCharactersType,
-} from '../templates'
+import { REQUEST_STATE } from '../api'
 
 export type APIResponsePaginationInfo = {
   count: number
@@ -23,10 +15,8 @@ export type APIResponse<T> = {
 export type SingleCharacterDetailsAPIResponse = {
   id: number
   name: string
-  // status: STATUS_CHARACTER
   species: string
   type: string
-  // gender: GENDER
   origin: {
     name: string
     url: string
