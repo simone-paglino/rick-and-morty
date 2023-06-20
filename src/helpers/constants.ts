@@ -4,3 +4,8 @@ export const APIS = {
   LOCATION: '/location',
   EPISODE: '/episode',
 }
+
+export const PAGES_ROUTES = {
+  LANDING_PAGE: '/',
+  SINGLE_CHARACTER: '/character',
+}

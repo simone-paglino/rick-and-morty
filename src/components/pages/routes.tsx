@@ -5,7 +5,9 @@ import CharactersList from './character/CharactersList'
 const RouterApp: FC = () => {
   return (
     <Routes>
-      <Route path="/" element={<CharactersList />}>
+      <Route path="/">
+        <Route path="/" index element={<CharactersList />} />
+        <Route path="/character/:id" element={<div>Single page</div>} />
         {/*<Route path="*" element={<NoMatch />} />*/}
       </Route>
     </Routes>
