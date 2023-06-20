@@ -5,9 +5,12 @@ import Spacer from '../../design-system/Spacer'
 import FlexBox from '../../design-system/FlexBox'
 import Text from '../../design-system/Text'
 import LabelAndDescription from '../../design-system/LabelAndDescription'
-import { CardStyledNew, Line } from './styled'
+import { CardStyledNew, IconWrapper, Line } from './styled'
 import Image from '../../design-system/Image'
 import Center from '../../layout/Center'
+import { OpenInNewWindow } from '../../../assets/icons/react-icons/OpenInNewWindow'
+import { useNavigate } from 'react-router-dom'
+import { PAGES_ROUTES } from '../../../helpers/constants'
 
 type CharacterCardProps = {
   id: number
@@ -31,8 +34,15 @@ const CharacterCard: FC<CharacterCardProps> = ({
   species,
   status,
 }) => {
+  const navigateTo = useNavigate()
+
   return (
-    <CardStyledNew>
+    <CardStyledNew
+      onClick={() => navigateTo(`${PAGES_ROUTES.SINGLE_CHARACTER}/${id}`)}
+    >
+      <IconWrapper>
+        <OpenInNewWindow />
+      </IconWrapper>
       <Center>
         <Image
           borderRadius="50%"
